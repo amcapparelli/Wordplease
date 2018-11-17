@@ -19,8 +19,10 @@ from django.contrib import admin
 from django.urls import path
 
 from blogs.views import BlogListView
+from posts.views import PostListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', PostListView.as_view(), name='home'),
     path('blogs/', BlogListView.as_view(), name='blog_list')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block 'main_body' %}
+    {% for post in posts %}
+        <div class="post-list-container">
+            <h2>{{ post.post_title }}</h2>
+            <article>{{ post.blog }}</article>
+            <span> {{ post.blog.author }}</span>
+        </div>
+    {% endfor %}
+{% endblock %}

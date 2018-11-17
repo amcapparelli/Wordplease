@@ -11,4 +11,4 @@ class Post(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{0}'.format(self.post_title)
+        return '{0} ({1})'.format(self.post_title, self.blog)
