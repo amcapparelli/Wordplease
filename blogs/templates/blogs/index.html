@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wordplease</title>
+</head>
+<body>
+    <h1>Wordplease</h1>
+    <p>The blogging platform</p>
+    {% for blog in blogs %}
+        <h2>{{blog.blog_title}}</h2>
+        <article>{{blog.blog_description}}</article>
+        <span>Un blog de: {{blog.author}}</span>
+    {% endfor %}
+</body>
+</html>
