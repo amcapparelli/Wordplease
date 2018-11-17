@@ -8,6 +8,6 @@ from posts.models import Post
 
 class PostListView(View):
     def get(self, request):
-        latest_posts = Post.objects.all().select_related('blog')
+        latest_posts = Post.objects.all().select_related('blog').order_by('-date_published')
         context = {'posts': latest_posts}
         return render(request, 'home.html', context)
