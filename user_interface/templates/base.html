@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block 'head_title' %} Wordplease {% endblock %}</title>
+</head>
+
+<body>
+    <nav>
+        <a href="">LOGIN</a>
+        <a href="/blogs">BLOGS</a>
+    </nav>
+    <header>
+        {% block 'main_header' %}
+            <h1>Wordplease</h1>
+            <p>The Bloggin Platform</p>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block 'main_body' %}
+
+        {% endblock %}
+    </main>
+    <footer>
+        Wordplease. Developed by Alejandro Capparelli.
+    </footer>
+</body>
+
+</html>
