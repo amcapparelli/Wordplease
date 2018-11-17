@@ -2,8 +2,10 @@
 
 {% block 'main_body' %}
     {% for blog in blogs %}
-        <h2>{{blog.blog_title}}</h2>
-        <article>{{blog.blog_description}}</article>
-        <span>Un blog de: {{blog.author}}</span>
+        <div class="blog-list-container">
+            <h2>{{blog.blog_title}}</h2>
+            <article>{{blog.blog_description}}</article>
+            <span>Un blog de: {{blog.author}}</span>
+        </div>
     {% endfor %}
 {% endblock %}
