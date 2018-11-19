@@ -2,22 +2,10 @@
 
 {% block 'main_body' %}
     <div class="signup-form">
-        <form method="post">
+
+        <form method="post" novalidate>
             {% csrf_token %}
-            <label for="first-name">Name: </label>
-            <input type="text" name="first-name" >
-
-            <label for="last-name">Last Name: </label>
-            <input type="text" name="last-name">
-
-            <label for="username">Username: </label>
-            <input type="text" name="username">
-
-            <label for="email">Email: </label>
-            <input type="email" name="email">
-
-            <label for="password">Password: </label>
-            <input type="text" name="password">
+            {{ signup_form.as_p }}
 
             <button>LOGIN</button>
         </form>

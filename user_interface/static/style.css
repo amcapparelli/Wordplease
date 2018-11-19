@@ -89,7 +89,10 @@ main {
 
 .login-form input, .signup-form input {
     width: 100%;
-    margin-bottom: 5%;
+}
+
+.login-form input {
+     margin-bottom: 5%;
 }
 
 .login-form button, .signup-form button {

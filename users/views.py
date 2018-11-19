@@ -1,9 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import View
+
+from users.signupForm import SignupForm
 
 
 class LoginView(View):
@@ -28,4 +31,17 @@ class LogoutView(View):
 
 class SignUpView(View):
     def get(self, request):
-        return render(request, 'signup.html')
+        form = SignupForm()
+        return render(request, 'signup.html', {'signup_form': form})
+
+    def post(self, request):
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = User()
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.email = form.cleaned_data.get('email')
+            user.username = form.cleaned_data.get('username')
+            user.set_password(form.cleaned_data.get('password'))
+            user.save()
+        return render(request, 'signup.html', {'signup_form': form})
