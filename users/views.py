@@ -44,4 +44,6 @@ class SignUpView(View):
             user.username = form.cleaned_data.get('username')
             user.set_password(form.cleaned_data.get('password'))
             user.save()
+            messages.success(request, 'Awesome! You have succesfully registred!')
+            form = SignupForm()
         return render(request, 'signup.html', {'signup_form': form})

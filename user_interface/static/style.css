@@ -105,6 +105,11 @@ main {
     justify-self: center;
 }
 
+.errorlist li {
+    list-style-type: none;
+    color: var(--main-color-salmon);
+}
+
 footer {
     color: var(--main-color-salmon);
     text-align: center;
