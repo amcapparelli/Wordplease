@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block 'main_body' %}
+    <div class="signup-form">
+        <form method="post">
+            {% csrf_token %}
+            <label for="first-name">Name: </label>
+            <input type="text" name="first-name" >
+
+            <label for="last-name">Last Name: </label>
+            <input type="text" name="last-name">
+
+            <label for="username">Username: </label>
+            <input type="text" name="username">
+
+            <label for="email">Email: </label>
+            <input type="email" name="email">
+
+            <label for="password">Password: </label>
+            <input type="text" name="password">
+
+            <button>LOGIN</button>
+        </form>
+
+        {% for message in messages %}
+            <p class="message {{message.tags}}">{{message}}</p>
+        {% endfor%}
+    </div>
+{% endblock %}

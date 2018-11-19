@@ -63,7 +63,7 @@ main {
     text-align: center;
 }
 
-.login-form {
+.login-form, .signup-form {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -72,9 +72,9 @@ main {
     width: 20%;
 }
 
-.login-form form {
+.login-form form, .signup-form form {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
     font-family: var(--font-p);
     background-color: var(--background-color-green);
     padding: 10%;
@@ -87,11 +87,12 @@ main {
     text-align: center;
 }
 
-.login-form input {
+.login-form input, .signup-form input {
     width: 100%;
+    margin-bottom: 5%;
 }
 
-.login-form button {
+.login-form button, .signup-form button {
     background-color: var(--main-color-salmon);
     border-radius: 10px;
     margin-top: 5%;

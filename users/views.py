@@ -27,4 +27,5 @@ class LogoutView(View):
         return redirect('login')
 
 class SignUpView(View):
-    pass
+    def get(self, request):
+        return render(request, 'signup.html')
