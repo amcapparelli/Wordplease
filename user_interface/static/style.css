@@ -4,10 +4,12 @@
     --links-color-red: #A20021;
     --secondary-color-blue: #2B4162;
     --background-color-green: #548687;
+    --font-p: 'Montserrat', sans-serif;
+    --font-titles: 'Allerta Stencil', sans-serif;
 }
 
 nav>a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-p);
     color: var(--links-color-red);
     text-decoration: none;
     float: right;
@@ -20,13 +22,13 @@ header {
 
 header>h1 {
     color: var(--main-color-salmon);
-    font-family: 'Allerta Stencil', sans-serif;
+    font-family: var(--font-titles);
     margin-bottom: 0;
 }
 
 header>p {
     color: var(--secondary-color-blue);
-    font-family: 'Allerta Stencil', sans-serif;
+    font-family: var(--font-titles);
 }
 
 main {
@@ -43,17 +45,17 @@ main {
 
 .post-list-container h3 {
     color: var(--links-color-red);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-p);
 }
 
 .blog-list-container h2, .post-list-container h2 {
     color: var(--main-color-salmon);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-p);
 }
 
 .blog-list-container article, span, .post-list-container article, span {
     color: var(--font-color);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-p);
 }
 
 .blog-list-container{
@@ -61,10 +63,52 @@ main {
     text-align: center;
 }
 
+.login-form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+
+.login-form form {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    font-family: var(--font-p);
+    background-color: var(--background-color-green);
+    padding: 10%;
+    border-radius: 10px;
+    color: white;
+}
+
+.error {
+    color: var(--links-color-red);
+    text-align: center;
+}
+
+.login-form input {
+    width: 100%;
+}
+
+.login-form button {
+    background-color: var(--main-color-salmon);
+    border-radius: 10px;
+    margin-top: 5%;
+    width: 40%;
+    padding: 1% 0 1% 0;
+    color: white;
+    justify-self: center;
+}
+
 footer {
     color: var(--main-color-salmon);
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-p);
     background-color: var(--background-color-green);
     padding: 2%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
