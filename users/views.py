@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -22,7 +22,9 @@ class LoginView(View):
         return render(request, 'login.html')
 
 class LogoutView(View):
-    pass
+    def get(self, request):
+        logout(request)
+        return redirect('login')
 
 class SignUpView(View):
     pass

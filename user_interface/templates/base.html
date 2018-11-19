@@ -11,9 +11,13 @@
 
 <body>
     <nav>
-        <a href="#">LOGIN</a>
-        <a href="/">HOME</a>
-        <a href="/blogs">BLOGS</a>
+        {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}">LOGIN</a>
+        {% else %}
+            <a href="/">HOME</a>
+            <a href="/blogs">BLOGS</a>
+            <a href="{% url 'logout' %}">LOGOUT</a>
+        {% endif %}
     </nav>
     <header>
         {% block 'main_header' %}
