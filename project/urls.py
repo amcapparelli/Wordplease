@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 
 from blogs.views import BlogListView
-from posts.views import PostListView
+from posts.views import PostListView, NewPostView
 from users.views import LoginView, LogoutView, SignUpView
 
 urlpatterns = [
@@ -28,5 +28,6 @@ urlpatterns = [
     path('blogs/', BlogListView.as_view(), name='blog_list'),
     path('login', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(), name='logout'),
-    path('signup', SignUpView.as_view(), name='signup')
+    path('signup', SignUpView.as_view(), name='signup'),
+    path('new-post', NewPostView.as_view(), name='new_post')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

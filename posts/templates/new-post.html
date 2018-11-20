@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block 'main_body' %}
+    <div class="new-post">
+        <h2>New Post </h2>
+        <p>Write your new post here.</p>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{ new_post.as_p }}
+            <button>PUBLISH</button>
+        </form>
+    </div>
+{% endblock %}
