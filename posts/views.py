@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
 # Create your views here.
@@ -17,8 +18,8 @@ class PostListView(View):
         context = {'posts': latest_posts}
         return render(request, 'home.html', context)
 
-class NewPostView(View):
-
+class NewPostView(LoginRequiredMixin, View):
+    login_url = '/login'
     def get(self, request):
         form = PostForm()
         return render(request, 'new-post.html', {'new_post': form})
