@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views import View
+from django.views.generic import DetailView
 
 from blogs.models import Blog
 from posts.models import Post
@@ -29,3 +30,7 @@ class NewPostView(View):
         if form.is_valid:
             form.save()
         return render(request, 'new-post.html', {'new_post': form})
+
+class SinglePostView(DetailView):
+    model= Post
+    template_name = 'single_post.html'
