@@ -8,6 +8,12 @@
     --font-titles: 'Allerta Stencil', sans-serif;
 }
 
+body {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
 nav>a {
     font-family: var(--font-p);
     color: var(--links-color-red);
@@ -20,10 +26,11 @@ header {
     margin-left: 10%;
 }
 
-header>h1 {
+header>h1, a {
     color: var(--main-color-salmon);
     font-family: var(--font-titles);
     margin-bottom: 0;
+    text-decoration: none;
 }
 
 header>p {
@@ -134,13 +141,12 @@ main h2 {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     color: var(--main-color-salmon);
     text-align: center;
     font-family: var(--font-p);
     background-color: var(--background-color-green);
     padding: 2%;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
