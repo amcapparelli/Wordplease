@@ -2,13 +2,13 @@
 
 {% block 'main_body' %}
     <div class="new-post">
-        <h2>New Post </h2>
-        <p>Write your post here.</p>
+        <h2>New Blog </h2>
+        <p>Create your first blog.</p>
         <hr>
         <form method="post">
             {% csrf_token %}
-            {{ new_post.as_p }}
-            <button>PUBLISH</button>
+            {{ new_blog.as_p }}
+            <button>CREATE</button>
         </form>
     </div>
 {% endblock %}
