@@ -16,8 +16,8 @@
             <a href="{% url 'signup' %}">SIGNUP</a>
         {% else %}
             <a href="{% url 'logout' %}">LOGOUT</a>
-            <a href="{% url 'home' %}">HOME</a>
             <a href="{% url 'blog_list' %}">BLOGS</a>
+            <a href="{% url 'new_post' %}">NEW POST</a>
             <a href="{% url 'user_page' username=request.user %}">{{request.user | upper}} PROFILE</a>
         {% endif %}
     </nav>

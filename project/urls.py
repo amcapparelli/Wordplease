@@ -16,20 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from blogs.views import BlogListView, UserPageView
 from posts.views import PostListView, NewPostView, SinglePostView
-from users.views import LoginView, LogoutView, SignUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PostListView.as_view(), name='home'),
-    path('blogs', BlogListView.as_view(), name='blog_list'),
-    path('login', LoginView.as_view(), name='login'),
-    path('logout', LogoutView.as_view(), name='logout'),
-    path('signup', SignUpView.as_view(), name='signup'),
-    path('new-post', NewPostView.as_view(), name='new_post'),
-    path('blogs/<username>', UserPageView.as_view(), name='user_page' ),
-    path('blogs/<username>/<int:pk>', SinglePostView.as_view(), name='single_post')
+    path('', include('blogs.urls')),
+    path('', include('users.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
