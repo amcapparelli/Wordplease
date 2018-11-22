@@ -13,6 +13,18 @@ class UsersDetailApiView(APIView):
         serializer = UserInfoSerializer(user)
         return Response(serializer.data)
 
+    def put(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        serializer = UserSerializer(user, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+    def delete(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class UserRegisterApi(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
