@@ -1,13 +1,19 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
+
 
 class UserInfoSerializer(serializers.Serializer):
 
     id = serializers.ReadOnlyField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
-    username = serializers.CharField()
-    email = serializers.EmailField()
+    username = serializers.CharField(
+        validators=[UniqueValidator(queryset=User.objects.all(), message='Ese username ya existe')]
+    )
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=User.objects.all(), message='Ese email ya existe')]
+    )
 
 class UserSerializer(UserInfoSerializer):
 
@@ -26,10 +32,3 @@ class UserSerializer(UserInfoSerializer):
         instance.save()
         return instance
 
-    def validate_username(self, value):
-        if self.instance and self.instance.username != value and User.objects.filter(username=value).exists():
-            raise serializers.ValidationError('Username {0} not available'.format(value))
-
-        if self.instance is None and User.objects.filter(username=value).exists():
-            raise serializers.ValidationError('Username {0} not available'.format(value))
-        return value
