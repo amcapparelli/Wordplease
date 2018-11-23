@@ -25,3 +25,11 @@ class UserSerializer(UserInfoSerializer):
         instance.set_password(validated_data.get('password'))
         instance.save()
         return instance
+
+    def validate_username(self, value):
+        if self.instance and self.instance.username != value and User.objects.filter(username=value).exists():
+            raise serializers.ValidationError('Username {0} not available'.format(value))
+
+        if self.instance is None and User.objects.filter(username=value).exists():
+            raise serializers.ValidationError('Username {0} not available'.format(value))
+        return value
