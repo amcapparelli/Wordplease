@@ -28,7 +28,7 @@ sigle post from author`s blog:
 ## API Routes
 
 GET  single user:   
-- /api/1.0/users/<int: pk>
+- /api/1.0/users/<int:pk>
 
 
 POST  new user:  
@@ -39,3 +39,6 @@ GET  all blogs:
 
 GET  all posts from blog:   
 - /api/1.0/blog/<username> 
+
+GET, PUT, DELETE single post:
+- /api/1.0/blog/<username>/<int:pk>
