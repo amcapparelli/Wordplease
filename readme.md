@@ -27,8 +27,15 @@ sigle post from author`s blog:
 
 ## API Routes
 
-GET     /api/1.0/users/<int: pk>
+GET  single user:   
+- /api/1.0/users/<int: pk>
 
-POST    /api/1.0/users/signup
 
-GET     /api/1.0/blogs  | query parameters: "author=[username]", "order=[blog_title]"
+POST  new user:  
+- /api/1.0/users/signup
+
+GET  all blogs:   
+- /api/1.0/blogs  | query params: "author=[username]", "order=[blog_title]"
+
+GET  all posts from blog:   
+- /api/1.0/blog/<pk> 

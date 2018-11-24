@@ -1,8 +1,10 @@
 from rest_framework import serializers
 
+from posts.models import Post
 
-class PostSerializers(serializers.Serializer):
-    id = serializers.CharField()
-    post_title = serializers.CharField()
-    post_body = serializers.CharField()
-    date_published = serializers.DateTimeField(format="%d-%m-%YT%H:%M")
+
+class PostSerializers(serializers.ModelSerializer):
+
+    class Meta:
+        model = Post
+        fields = ['id', 'post_title']
