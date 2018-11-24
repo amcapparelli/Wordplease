@@ -38,4 +38,4 @@ GET  all blogs:
 - /api/1.0/blogs  | query params: "author=[username]", "order=[blog_title]"
 
 GET  all posts from blog:   
-- /api/1.0/blog/<pk> 
+- /api/1.0/blog/<username> 
