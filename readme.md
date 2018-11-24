@@ -30,7 +30,6 @@ sigle post from author`s blog:
 GET  single user:   
 - /api/1.0/users/<int:pk>
 
-
 POST  new user:  
 - /api/1.0/users/signup
 
