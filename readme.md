@@ -8,11 +8,21 @@ pip install -r requirements.txt
 
 ## APP Routes
 
-/signup
+- /signup
 
-/login
+- /login
 
-/admin
+- /admin
+
+all blogs: 
+- /blogs
+
+all posts from author`s blog: 
+- /blogs/[username] 
+
+sigle post from author`s blog:
+
+- /blogs/[username]/[id]
 
 
 ## API Routes

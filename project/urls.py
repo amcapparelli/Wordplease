@@ -24,5 +24,6 @@ from posts.views import PostListView, NewPostView, SinglePostView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blogs.urls')),
+    path('', include('posts.urls')),
     path('', include('users.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
