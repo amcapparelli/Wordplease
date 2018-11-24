@@ -27,7 +27,7 @@ class UserPageView(View):
             return render(request, 'blogs/create_blog.html', context)
 
     def post(self, request, username):
-        blog = Blog(author=request.user)
+        blog = Blog(author=request.user, blog_url='blogs/' + username)
         form = NewBlogForm(request.POST, instance=blog)
         if form.is_valid():
             form.save()
