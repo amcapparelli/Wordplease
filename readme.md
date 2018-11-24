@@ -20,3 +20,5 @@ pip install -r requirements.txt
 GET     /api/1.0/users/<int: pk>
 
 POST    /api/1.0/users/signup
+
+GET     /api/1.0/blogs  | query parameters: "author=[username]", "order=[blog_title]"
