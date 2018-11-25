@@ -11,7 +11,8 @@ class PostForm(forms.ModelForm):
             'date_published': SelectDateWidget()
         }
         labels = {
-            'date_published': 'Publish Date '
+            'date_published': 'Publish Date',
+            'image': 'Image URL'
         }
-        fields = ['post_title', 'post_body', 'categories',  'date_published']
+        fields = ['post_title', 'post_body', 'image', 'categories',  'date_published']
 

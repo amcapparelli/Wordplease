@@ -51,13 +51,20 @@ main h2 {
 }
 
 .post-list-container, .new-post {
-    grid-column-start: 2;
     grid-column: 2 / 5;
 }
 
 .post-list-container h3 {
     color: var(--links-color-red);
     font-family: var(--font-p);
+}
+
+.post-image-mini img {
+    width: 150px;
+}
+
+.post-image img {
+    max-width: 100%;
 }
 
 .blog-list-container h2, .post-list-container h2 {
@@ -71,7 +78,6 @@ main h2 {
 }
 
 .blog-list-container{
-    grid-column-start: 2;
     text-align: center;
 }
 

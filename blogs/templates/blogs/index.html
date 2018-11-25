@@ -3,7 +3,7 @@
 {% block 'main_body' %}
     {% for blog in blogs %}
         <div class="blog-list-container">
-            <h2>{{blog.blog_title}}</h2>
+            <h2><a href="/blogs/{{blog.author}}">{{blog.blog_title}}</a></h2>
             <article>{{blog.blog_description}}</article>
             <span>Un blog de: {{blog.author}}</span>
         </div>

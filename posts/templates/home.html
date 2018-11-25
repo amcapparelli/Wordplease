@@ -4,7 +4,7 @@
     {% for post in posts %}
         <div class="post-list-container">
             <h2>{{ post.post_title }}</h2>
-            <article>{{ post.post_body }}</article>
+            <article>{{ post.post_body | slice:":500" }}...</article>
             <h3>Blog: {{ post.blog }}</h3>
             <span> Un blog de:  {{ post.blog.author }}</span>
         </div>
