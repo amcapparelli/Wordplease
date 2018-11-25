@@ -8,7 +8,7 @@ from categories.models import Category
 class Post(models.Model):
     post_title = models.CharField(max_length=150)
     post_body = models.TextField()
-    date_published = models.DateTimeField('%m/%d/%Y %H:%M')
+    date_published = models.DateTimeField('%m/%d/%Y')
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     image = models.URLField()
