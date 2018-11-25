@@ -4,9 +4,10 @@ from blogs.models import Blog
 
 
 class PostPermission(BasePermission):
-    def has_permission(self, request, view):
-        return request.user.is_authenticated or request.method == 'GET'
 
     def has_object_permission(self, request, view, obj):
-        user_blog = Blog.objects.get(author=request.user)
+        try:
+            user_blog = Blog.objects.get(author=request.user)
+        except Blog.DoesNotExist:
+            user_blog = None
         return request.method == 'GET' or obj.blog == user_blog or request.user.is_superuser
