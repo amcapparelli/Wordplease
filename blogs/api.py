@@ -12,9 +12,9 @@ class BlogsListApiView(ListAPIView):
         author = self.request.query_params.get('author', None)
         order = self.request.query_params.get('order', None)
         if author is not None and order is not None:
-            return Blog.objects.filter(author__username=author).order_by(order)
+            return Blog.objects.filter(author__username__startswith=author).order_by(order)
         if author is not None:
-            return Blog.objects.filter(author__username=author)
+            return Blog.objects.filter(author__username__startswith=author)
         if order is not None:
             return Blog.objects.all().order_by(order)
         return Blog.objects.all()

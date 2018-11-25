@@ -13,5 +13,4 @@ urlpatterns = [
     #API Routes
     path('api/1.0/blog/<username>', APISingleBlogView.as_view(), name='API_single_blog'),
     path('api/1.0/blog/<username>/<int:pk>', APISinglePostView.as_view(), name='API_single_post')
-
 ]

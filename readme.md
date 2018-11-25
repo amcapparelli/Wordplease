@@ -36,8 +36,8 @@ POST  new user:
 GET  all blogs:   
 - /api/1.0/blogs  | query params: "author=[username]", "order=[blog_title]"
 
-GET  all posts from blog:   
-- /api/1.0/blog/<username> 
+GET  all posts from a blog || POST new post:
+- /api/1.0/blog/username   | query params: "search=[key word]"
 
 GET, PUT, DELETE single post:
-- /api/1.0/blog/<username>/<int:pk>
+- /api/1.0/blog/username/int:pk
