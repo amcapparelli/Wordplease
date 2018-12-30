@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 # Create your views here.
 from django.views import View
 from django.views.generic import DetailView
@@ -21,8 +22,13 @@ class NewPostView(LoginRequiredMixin, View):
     login_url = '/login'
 
     def get(self, request):
-        form = PostForm()
-        return render(request, 'new-post.html', {'new_post': form})
+        blog = Blog.objects.filter(author=request.user).exists()
+        if blog == True:
+            form = PostForm()
+            return render(request, 'new-post.html', {'new_post': form})
+        else:
+            return redirect('user_page', username=request.user)
+
 
     def post(self, request):
         blog = Blog.objects.get(author=request.user)
