@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
 
 from blogs.models import Blog
@@ -22,7 +22,7 @@ class APISingleBlogView(ListCreateAPIView):
 
     def get(self, request, username):
         user = get_object_or_404(User, username=username)
-        user_blog = Blog.objects.get(author=user)
+        user_blog = get_object_or_404(Blog, author=user)
         key_word = self.request.query_params.get('search') or ''
 
         if request.user.is_authenticated and request.user == user:
@@ -48,4 +48,4 @@ class APISingleBlogView(ListCreateAPIView):
 class APISinglePostView(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializers
-    permission_classes = [IsAuthenticatedOrReadOnly, PostPermission]
+    permission_classes = [IsAuthenticated, PostPermission]
