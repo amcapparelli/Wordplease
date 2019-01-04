@@ -22,9 +22,13 @@ class APISingleBlogView(ListCreateAPIView):
 
     def get(self, request, username):
         user = get_object_or_404(User, username=username)
-        user_blog = get_object_or_404(Blog, author=user)
-        key_word = self.request.query_params.get('search') or ''
+        try:
+            user_blog = Blog.objects.get(author=user)
+        except Blog.DoesNotExist:
+            content = {'{0}'.format(user): 'this user has no blog yet'}
+            return Response(content)
 
+        key_word = self.request.query_params.get('search') or ''
         if request.user.is_authenticated and request.user == user:
             posts = Post.objects.filter(
                 Q(post_title__contains=key_word) | Q(post_body__contains=key_word),

@@ -8,7 +8,7 @@ from django.views.generic import DetailView
 
 from blogs.models import Blog
 from posts.models import Post
-from posts.newPostForm import PostForm
+from posts.new_post_form import PostForm
 
 
 class PostListView(View):

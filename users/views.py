@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views import View
 
-from users.signupForm import SignupForm
+from users.signup_form import SignupForm
 
 
 class LoginView(View):

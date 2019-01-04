@@ -1,10 +1,9 @@
-from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
-from blogs.NewBlogForm import NewBlogForm
 from blogs.models import Blog
+from blogs.new_blog_form import NewBlogForm
 from posts.models import Post
 
 
