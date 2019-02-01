@@ -3,6 +3,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
@@ -46,8 +47,13 @@ class APISingleBlogView(ListCreateAPIView):
             return Response(serializer.data)
 
     def perform_create(self, serializer):
-        user_blog = Blog.objects.get(author=self.request.user)
+        try:
+            user_blog = Blog.objects.get(author=self.request.user)
+        except Blog.DoesNotExist:
+            content = {'{0}'.format(self.request.user): 'this user doesn´t have a blog to publish this post'}
+            raise ValidationError(content)
         serializer.save(blog=user_blog)
+
 
 class APISinglePostView(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
